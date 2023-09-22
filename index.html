@@ -29,53 +29,40 @@
             <h2>Input Buku Baru 📰</h2>
             <form id="insert">
                 <div class="form-input">
-                    <label for="judul">Judul</label>
-                    <input type="text" required id="judul" name="judul">
+                    <label for="title">Judul</label>
+                    <input type="text" required id="title" name="title" placeholder="Judul Buku...">
                 </div>
                 <div class="form-input">
-                    <label for="penulis">Penulis</label>
-                    <input type="text" required id="penulis" name="penulis">
+                    <label for="author">Penulis</label>
+                    <input type="text" required id="author" name="author" placeholder="Penulis Buku...">
                 </div>
                 <div class="form-input">
-                    <label for="tahun">Tahun</label>
-                    <input type="number" required id="tahun" name="tahun">
+                    <label for="year">Tahun</label>
+                    <input type="number" required id="year" name="year" placeholder="Tahun Terbit...">
                 </div>
                 <div class="checkbox">
-                    <input type="checkbox" name="complete" id="complete">
-                    <label for="complete">Selesai Dibaca</label>
+                    <input type="checkbox" name="isComplete" id="isComplete">
+                    <label for="isComplete">Selesai Dibaca</label>
                 </div>
-                <button class="submit" type="button">Submit</button>
+                <button class="submit" type="submit">Submit</button>
             </form>
         </article>
         <article class="search">
             <h2>Cari Buku 🔍</h2>
             <div class="form-input">
                 <label for="search">Cari Buku</label>
-                <input type="text" id="search">
+                <input type="text" id="search" placeholder="Cari Buku & Penulis...">
             </div>
         </article>
         <article class="bookshelf">
             <h2>Rak Buku 📚</h2>
             <section class="uncomplete">
                 <h3>Belum Selesai Dibaca</h3>
-                <div class="data">
-                    <div class="buku">
-                        <div class="list">
-                            <h4>Buku Kriminal (2002)</h4>
-                            <p>Oleh Abraham Smith</p>
-                        </div>
-                        <div class="option">
-                            <button class="change">Sudah Baca 📖</button>
-                            <button class="delete">Hapus 🗑</button>
-                        </div>
-                    </div>
-                </div>
+                <div class="data"></div>
             </section>
             <section class="complete">
                 <h3>Selesai Dibaca</h3>
-                <div class="data">
-
-                </div>
+                <div class="data"></div>
             </section>
         </article>
     </main>

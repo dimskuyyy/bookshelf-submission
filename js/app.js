@@ -42,14 +42,40 @@ function loadData(keyword) {
             changeStatus(id,false);
         });
     });
-
+    
     const deleteBtn = document.querySelectorAll('button.delete');
+    const confirm = document.querySelector(".confirmation button.confirm");
+    const unconfirm = document.querySelector(".confirmation button.unconfirm");
+    const modal = document.querySelector('.modal');
+    const text = document.querySelector('.modal-content .information');
+    const icon = document.querySelector('.icon svg');
     deleteBtn.forEach((button)=>{
         button.addEventListener("click", (event)=>{
-            const id = event.target.dataset.id;
-            removeBook(id);
+            confirm.setAttribute('data-id',event.target.dataset.id);
+            text.innerHTML = `Apakah anda yakin ingin menghapus buku <span>${event.target.dataset.title} (${event.target.dataset.year})</span> Oleh ${event.target.dataset.author} dari Rak Buku 📚?`;
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />';
+            icon.classList.remove('success');
+
+            modal.classList.add('active');
         })
     });
+
+    confirm.addEventListener('click',(event)=>{
+        const id = event.target.dataset.id;
+        text.innerHTML = 'Buku Berhasil di Hapus 🗑';
+
+        icon.classList.add('success');
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>';
+        setTimeout(()=> {
+            modal.classList.remove('active');
+            removeBook(id);
+        }, 800);
+        
+    })
+
+    unconfirm.addEventListener('click', (event)=>{
+        modal.classList.remove('active');
+    })
 
     storeBook();
 }
@@ -73,11 +99,14 @@ function createTemplate(book){
     const statusBtn = document.createElement('button');
     statusBtn.classList.add('change');
     statusBtn.setAttribute("data-id",book.id);
-    statusBtn.textContent = book.isComplete ? "Belum Selesai Dibaca 📚" : "Sudah Baca 📖";
+    statusBtn.textContent = book.isComplete ? "Belum Baca 📚" : "Sudah Baca 📖";
 
     const deleteBtn = document.createElement("button");
     deleteBtn.classList.add('delete');
     deleteBtn.setAttribute("data-id",book.id);
+    deleteBtn.setAttribute("data-title",book.title);
+    deleteBtn.setAttribute("data-author",book.author);
+    deleteBtn.setAttribute("data-year",book.year);
     deleteBtn.textContent = "Hapus 🗑";
 
     list.appendChild(listTitle);

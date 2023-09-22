@@ -164,6 +164,77 @@ main article section{
     background-color: rgb(197, 30, 30);
 }
 
+.modal{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0 0 0/0.3);
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+}
+
+.modal.active{
+    display: flex;
+}
+
+.modal-content{
+    width: 30rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    z-index: 200;
+}
+
+.modal-content .icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content .icon svg{
+    height: 8rem;
+    width: 8rem;
+    color: rgb(197, 30, 30);
+}
+
+.modal-content .icon svg.success{
+    color: #2563eb;
+}
+
+.modal-content .information{
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content .information span{
+    font-weight: 700;
+}
+
+.modal-content .confirmation{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+}
+
+.modal-content .confirmation button{
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.675rem;
+    font-weight: 600;
+}
+
+.modal-content .confirmation .unconfirm{
+    background-color: #c9c9c9;
+}
+
+.modal-content .confirmation .confirm{
+    background-color: rgb(197, 30, 30);
+    color: white;
+}
+
 @media (max-width:1024px) {
     main{
         padding: 0 1rem;
